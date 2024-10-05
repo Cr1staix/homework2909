@@ -103,7 +103,7 @@ public class Methods {
         } else if (number == 0) {
             return 0;
         } else {
-            return number * getFactorialWithError(number - 1);
+            return number * getFactorialWithOutError(number - 1);
         }
     }
 }

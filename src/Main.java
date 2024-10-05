@@ -21,7 +21,6 @@ public class Main {
         System.out.println(Methods.getSquare(numberToSquare2));
         System.out.println(Methods.getSquare(numberToSquare3));
         System.out.println(Methods.getSquare(numberToSquare4));
-
     }
 
     static void task2() {
