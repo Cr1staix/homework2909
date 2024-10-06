@@ -27,15 +27,15 @@ public class Methods {
      * @return возвращает самый коротки и самый длинный элемент.
      */
     static String[] getCornerValuesArray(String... s) {
-        int shortLine = s[0].length();
-        int longLine = s[0].length();
+        if (s.length == 0) {
+            return new String[]{null, null};
+        }
         String shortWord = s[0];
         String longWord = s[0];
         for (String element : s) {
-            if (element.length() < shortLine) {
+            if (element.length() < shortWord.length()) {
                 shortWord = element;
-            }
-            if (element.length() > longLine) {
+            } else if (element.length() > longWord.length()) {
                 longWord = element;
             }
         }
@@ -48,18 +48,20 @@ public class Methods {
      * @param numbers varargs с переменными типа int.
      * @return возвращает самый маленький и самый большой элемент.
      */
-    static int[] getCornerValuesArray(int... numbers) {
+    static Integer[] getCornerValuesArray(int... numbers) {
+        if (numbers.length == 0) {
+            return new Integer[]{null, null};
+        }
         int minValue = numbers[0];
         int maxValue = numbers[0];
         for (int element : numbers) {
             if (minValue > element) {
                 minValue = element;
-            }
-            if (maxValue < element) {
+            } else if (maxValue < element) {
                 maxValue = element;
             }
         }
-        return new int[]{minValue, maxValue};
+        return new Integer[]{minValue, maxValue};
     }
 
     /**
@@ -68,19 +70,40 @@ public class Methods {
      * @param symbols varargs с пемеменными типа char.
      * @return возвращает самый маленький и самый большой элемент.
      */
-    static char[] getCornerValuesArray(char... symbols) {
+    static Character[] getCornerValuesArray(char... symbols) {
+        if (symbols.length == 0) {
+            return new Character[]{null, null};
+        }
         char minValue = symbols[0];
         char maxValue = symbols[0];
 
         for (char element : symbols) {
             if (minValue > element) {
                 minValue = element;
-            }
-            if (maxValue < element) {
+            } else if (maxValue < element) {
                 maxValue = element;
             }
         }
-        return new char[]{minValue, maxValue};
+        return new Character[]{minValue, maxValue};
 
+    }
+
+    static int getFactorialWithError(int number) {
+        if (number == 1) {
+            return 1;
+        } else {
+            return number * getFactorialWithError(number - 1);
+        }
+    }
+
+    static int getFactorialWithOutError(int number) {
+        number = Math.abs(number);
+        if (number == 1) {
+            return 1;
+        } else if (number == 0) {
+            return 0;
+        } else {
+            return number * getFactorialWithOutError(number - 1);
+        }
     }
 }
